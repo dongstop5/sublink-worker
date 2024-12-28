@@ -44,7 +44,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: outbound,
-                    outbounds: [...proxyList', 🚀 节点选择']
+                    outbounds: [...proxyList, '🚀 节点选择']
                 });
             } else {
                 this.config.outbounds.unshift({
@@ -60,7 +60,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: rule.name,
-                    outbounds: [...proxyList', 🚀 节点选择']
+                    outbounds: [...proxyList, '🚀 节点选择']
                 });
             });
         }
