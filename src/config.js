@@ -351,8 +351,7 @@ export const SING_BOX_CONFIG = {
 		detour: 'DIRECT'
 	},
 	inbounds: [
-		{ type: 'mixed', tag: 'mixed-in', listen: '0.0.0.0', listen_port: 2080 },
-		{ type: 'tun', tag: 'tun-in', address: '172.18.0.1/30', mtu: 9000, auto_route: true, strict_route: true, stack: 'mixed', http_proxy: { enabled: true, server: '127.0.0.1:8888' } }
+[{"type":"mixed","tag":"mixed-in","listen":"0.0.0.0","listen_port":8888,"udp_fragment":false},{"type":"tun","tag":"tun-in","mtu":9000,"address":"172.18.0.1/30","auto_route":true,"strict_route":true,"stack":"mixed","platform":{"http_proxy":{"enabled":true,"server":"127.0.0.1","server_port":8888}}}]
 	],
 	outbounds: [
 		{ type: 'direct', tag: 'DIRECT' }
