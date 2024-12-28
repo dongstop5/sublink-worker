@@ -91,7 +91,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         }));
         // Add any default rules that should always be present
         this.config.route.rules.unshift(
-            { protocol: 'dns', outbound: 'dns-out' },
+            { action: 'sniff', inbound: 'tun-in' },
             { clash_mode: 'direct', outbound: 'DIRECT' },
             { clash_mode: 'global', outbound: 'GLOBAL' }
         );
