@@ -55,28 +55,28 @@ outbounds.forEach(outbound => {
     }
 });
 
-if (Array.isArray(this.customRules)) {
-    this.customRules.forEach(rule => {
+        if (Array.isArray(this.customRules)) {
+            this.customRules.forEach(rule => {
+                this.config.outbounds.push({
+                    type: "selector",
+                    tag: rule.name,
+                    outbounds: [...proxyList, '🚀 节点选择']
+                });
+            });
+        }
+
         this.config.outbounds.push({
             type: "selector",
-            tag: rule.name,
-            outbounds: [...proxyList, '🚀 节点选择']
+            tag: "🔒 国内服务",
+            outbounds: ['DIRECT', ...proxyList, '🚀 节点选择'] // DIRECT 优先
         });
-    });
 
-
-this.config.outbounds.push({
-    type: "selector",
-    tag: "🔒 国内服务",
-    outbounds: ['DIRECT', ...proxyList, '🚀 节点选择'] // DIRECT 优先
-});
-
-this.config.outbounds.push({
-    type: "selector",
-    tag: "🐟 漏网之鱼",
-    outbounds: ['🚀 节点选择', ...proxyList]
-});
-}
+        this.config.outbounds.push({
+            type: "selector",
+            tag: "🐟 漏网之鱼",
+            outbounds: ['🚀 节点选择', ...proxyList]
+        });
+    }
 
     formatConfig() {
         const rules = generateRules(this.selectedRules, this.customRules, this.pin);
