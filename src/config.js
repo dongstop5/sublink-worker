@@ -338,7 +338,7 @@ export const SING_BOX_CONFIG = {
 					"A",
 					"AAAA"
 				],
-				rewrite_ttl: 1
+				rewrite_ttl: 1,
 				server: "dns_fakeip"
 			}
 		],
