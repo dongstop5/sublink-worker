@@ -389,7 +389,12 @@ export const SING_BOX_CONFIG = {
 			external_controller: '127.0.0.1:9090',
 			external_ui: 'dashboard'
 		}
-	}
+	},
+	  log: {
+    disabled: false,
+    level: "error",
+    output: "",
+  }
 };
 
 export const CLASH_CONFIG = {

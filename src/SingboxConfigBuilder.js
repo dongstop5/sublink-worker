@@ -93,7 +93,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         this.config.route.rules.unshift(
             { action: 'sniff', inbound: 'tun-in' },
             { action: 'hijack-dns', protocol: 'dns' },
-            { action: 'hijack-dns', port: '53' },
+            { action: 'hijack-dns', port: 53 },
             { clash_mode: 'direct', outbound: 'DIRECT' },
             { clash_mode: 'global', outbound: 'GLOBAL' }
         );
