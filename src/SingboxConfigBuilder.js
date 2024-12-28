@@ -68,12 +68,13 @@ outbounds.forEach(outbound => {
         this.config.outbounds.push({
             type: "selector",
             tag: "🔒 国内服务",
-            outbounds: 'DIRECT' // DIRECT 优先
+            outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
         });
+        
         this.config.outbounds.push({
             type: "selector",
             tag: "🏠 私有网络",
-            outbounds: 'DIRECT' // DIRECT 优先
+            outbounds: ['DIRECT', '🚀 节点选择']
         });
 
         this.config.outbounds.push({
