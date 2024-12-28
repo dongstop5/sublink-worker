@@ -329,6 +329,18 @@ export const SING_BOX_CONFIG = {
 				outbound: "any",
 				server: "dns_resolver"
 			},
+			      {
+        "action": "reject",
+        "clash_mode": "block"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "dns_proxy"
+      },
 			{
 				rule_set: "geolocation-cn",
 				server: "dns_direct"
@@ -338,7 +350,7 @@ export const SING_BOX_CONFIG = {
 					"A",
 					"AAAA"
 				],
-				rewrite_ttl: 1,
+				rewrite_ttl: 1
 				server: "dns_fakeip"
 			}
 		],
@@ -364,7 +376,7 @@ export const SING_BOX_CONFIG = {
 	outbounds: [
 		{ type: 'direct', tag: 'DIRECT' },
 		{ type: 'block', tag: 'REJECT' },
-		{ type: 'sniff', tag: 'tun-in' }
+		{ type: 'dns', tag: 'dns-out' }
 	],
 	route : {
 		"rule_set": [
