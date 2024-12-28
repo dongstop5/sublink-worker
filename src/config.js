@@ -320,15 +320,7 @@ export const SING_BOX_CONFIG = {
 			{
 				outbound: "any",
 				server: "dns_resolver"
-			},
-      {
-        clash_mode: "direct",
-        server: "dns_direct"
-      },
-      {
-        clash_mode: "global",
-        server: "dns_proxy"
-      },
+			},      
 			{
 				rule_set: "geolocation-cn",
 				server: "dns_direct"

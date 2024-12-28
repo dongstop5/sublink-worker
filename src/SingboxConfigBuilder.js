@@ -36,41 +36,47 @@ export class ConfigBuilder extends BaseConfigBuilder {
             outbounds: DeepCopy(proxyList),
         });
 
-        proxyList.unshift('⚡ 自动选择', 'DIRECT');
-        outbounds.unshift('🚀 节点选择','GLOBAL');
-        
-        outbounds.forEach(outbound => {
-            if (outbound !== '🚀 节点选择') {
-                this.config.outbounds.push({
-                    type: "selector",
-                    tag: outbound,
-                    outbounds: [...proxyList, '🚀 节点选择']
-                });
-            } else {
-                this.config.outbounds.unshift({
-                    type: "selector",
-                    tag: outbound,
-                    outbounds: proxyList
-                });
-            }
-        });
+proxyList.unshift('⚡ 自动选择', 'DIRECT');
+outbounds.unshift('🚀 节点选择','GLOBAL');
 
-        if (Array.isArray(this.customRules)) {
-            this.customRules.forEach(rule => {
-                this.config.outbounds.push({
-                    type: "selector",
-                    tag: rule.name,
-                    outbounds: [...proxyList, '🚀 节点选择']
-                });
-            });
-        }
-
+outbounds.forEach(outbound => {
+    if (outbound !== '🚀 节点选择') {
         this.config.outbounds.push({
             type: "selector",
-            tag: "🐟 漏网之鱼",
-            outbounds: ['🚀 节点选择', ...proxyList]
+            tag: outbound,
+            outbounds: [...proxyList, '🚀 节点选择']
+        });
+    } else {
+        this.config.outbounds.unshift({
+            type: "selector",
+            tag: outbound,
+            outbounds: proxyList
         });
     }
+});
+
+if (Array.isArray(this.customRules)) {
+    this.customRules.forEach(rule => {
+        this.config.outbounds.push({
+            type: "selector",
+            tag: rule.name,
+            outbounds: [...proxyList, '🚀 节点选择']
+        });
+    });
+}
+
+this.config.outbounds.push({
+    type: "selector",
+    tag: "🔒 国内服务",
+    outbounds: ['DIRECT', ...proxyList, '🚀 节点选择'] // DIRECT 优先
+});
+
+this.config.outbounds.push({
+    type: "selector",
+    tag: "🐟 漏网之鱼",
+    outbounds: ['🚀 节点选择', ...proxyList]
+});
+
 
     formatConfig() {
         const rules = generateRules(this.selectedRules, this.customRules, this.pin);
@@ -96,6 +102,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
             { action: 'hijack-dns', port: 53 },
             { clash_mode: 'direct', outbound: 'DIRECT' },
             { clash_mode: 'global', outbound: 'GLOBAL' }
+         //    {rule_set:["geolocation-cn","cn-ip"],outbound:"DIRECT"} 添加CN默认直连
         );
 
         this.config.route.auto_detect_interface = true;
