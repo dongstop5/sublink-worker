@@ -63,7 +63,7 @@ if (Array.isArray(this.customRules)) {
             outbounds: [...proxyList, '🚀 节点选择']
         });
     });
-}
+
 
 this.config.outbounds.push({
     type: "selector",
@@ -76,7 +76,7 @@ this.config.outbounds.push({
     tag: "🐟 漏网之鱼",
     outbounds: ['🚀 节点选择', ...proxyList]
 });
-
+}
 
     formatConfig() {
         const rules = generateRules(this.selectedRules, this.customRules, this.pin);
