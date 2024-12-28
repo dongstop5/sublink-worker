@@ -68,12 +68,12 @@ outbounds.forEach(outbound => {
         this.config.outbounds.push({
             type: "selector",
             tag: "🔒 国内服务",
-            outbounds: ['DIRECT', ...proxyList] // DIRECT 优先
+            outbounds: 'DIRECT' // DIRECT 优先
         });
         this.config.outbounds.push({
             type: "selector",
             tag: "🏠 私有网络",
-            outbounds: ['DIRECT', ...proxyList] // DIRECT 优先
+            outbounds: 'DIRECT' // DIRECT 优先
         });
 
         this.config.outbounds.push({
@@ -105,8 +105,8 @@ outbounds.forEach(outbound => {
             { action: 'sniff', inbound: 'tun-in' },
             { action: 'hijack-dns', protocol: 'dns' },
             { action: 'hijack-dns', port: 53 },
-            { clash_mode: '直连', outbound: 'DIRECT' },
-            { clash_mode: '全局', outbound: 'GLOBAL' }
+            { clash_mode: '全局', outbound: 'GLOBAL' },
+            { clash_mode: '直连', outbound: 'DIRECT' }
          //    {rule_set:["geolocation-cn","cn-ip"],outbound:"DIRECT"} 添加CN默认直连
         );
 

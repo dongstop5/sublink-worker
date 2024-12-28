@@ -334,6 +334,7 @@ export const SING_BOX_CONFIG = {
 				server: "dns_fakeip"
 			}
 		],
+		strategy: "ipv4_only",
 		final: "dns_proxy",
 		independent_cache: true,
 		fakeip: {
