@@ -36,7 +36,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
             outbounds: DeepCopy(proxyList),
         });
 
-        proxyList.unshift('DIRECT', 'REJECT', '⚡ 自动选择');
+        proxyList.unshift('DIRECT', '⚡ 自动选择');
         outbounds.unshift('🚀 节点选择','GLOBAL');
         
         outbounds.forEach(outbound => {
@@ -92,6 +92,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         // Add any default rules that should always be present
         this.config.route.rules.unshift(
             { action: 'sniff', inbound: 'tun-in' },
+            { action: 'hijack-dns', protocol: 'dns' },
             { clash_mode: 'direct', outbound: 'DIRECT' },
             { clash_mode: 'global', outbound: 'GLOBAL' }
         );

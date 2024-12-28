@@ -329,17 +329,17 @@ export const SING_BOX_CONFIG = {
 				outbound: "any",
 				server: "dns_resolver"
 			},
-			      {
-        "action": "reject",
-        "clash_mode": "block"
+			{
+        action: "reject",
+        clash_mode: "block"
       },
       {
-        "clash_mode": "direct",
-        "server": "dns_direct"
+        clash_mode: "direct",
+        server: "dns_direct"
       },
       {
-        "clash_mode": "global",
-        "server": "dns_proxy"
+        clash_mode: "global",
+        server: "dns_proxy"
       },
 			{
 				rule_set: "geolocation-cn",
@@ -374,9 +374,7 @@ export const SING_BOX_CONFIG = {
 		{ type: 'tun', tag: 'tun-in', address: '172.19.0.1/30', auto_route: true, strict_route: true, stack: 'mixed' }
 	],
 	outbounds: [
-		{ type: 'direct', tag: 'DIRECT' },
-		{ type: 'block', tag: 'REJECT' },
-		{ type: 'dns', tag: 'dns-out' }
+		{ type: 'direct', tag: 'DIRECT' }
 	],
 	route : {
 		"rule_set": [
