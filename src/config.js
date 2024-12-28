@@ -312,14 +312,6 @@ export const SING_BOX_CONFIG = {
 				detour: "DIRECT"
 			},
 			{
-				tag: "dns_success",
-				address: "rcode://success"
-			},
-			{
-				tag: "dns_refused",
-				address: "rcode://refused"
-			},
-			{
 				tag: "dns_fakeip",
 				address: "fakeip"
 			}
@@ -329,10 +321,6 @@ export const SING_BOX_CONFIG = {
 				outbound: "any",
 				server: "dns_resolver"
 			},
-			{
-        action: "reject",
-        clash_mode: "block"
-      },
       {
         clash_mode: "direct",
         server: "dns_direct"

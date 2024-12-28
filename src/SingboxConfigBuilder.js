@@ -36,7 +36,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
             outbounds: DeepCopy(proxyList),
         });
 
-        proxyList.unshift('DIRECT', '⚡ 自动选择');
+        proxyList.unshift('⚡ 自动选择', 'DIRECT');
         outbounds.unshift('🚀 节点选择','GLOBAL');
         
         outbounds.forEach(outbound => {
@@ -44,7 +44,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: outbound,
-                    outbounds: ['🚀 节点选择', ...proxyList]
+                    outbounds: [...proxyList', 🚀 节点选择']
                 });
             } else {
                 this.config.outbounds.unshift({
@@ -60,7 +60,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: rule.name,
-                    outbounds: ['🚀 节点选择', ...proxyList]
+                    outbounds: [...proxyList', 🚀 节点选择']
                 });
             });
         }
@@ -93,6 +93,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         this.config.route.rules.unshift(
             { action: 'sniff', inbound: 'tun-in' },
             { action: 'hijack-dns', protocol: 'dns' },
+            { action: 'hijack-dns', port: '53' },
             { clash_mode: 'direct', outbound: 'DIRECT' },
             { clash_mode: 'global', outbound: 'GLOBAL' }
         );
