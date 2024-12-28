@@ -330,32 +330,19 @@ export const SING_BOX_CONFIG = {
 				server: "dns_resolver"
 			},
 			{
-				rule_set: "geolocation-!cn",
+				rule_set: "geolocation-cn",
+				server: "dns_direct"
+			},
+			{
 				query_type: [
 					"A",
 					"AAAA"
 				],
+				rewrite_ttl: 1
 				server: "dns_fakeip"
-			},
-			{
-				rule_set: "geolocation-!cn",
-				query_type: [
-					"CNAME"
-				],
-				server: "dns_proxy"
-			},
-			{
-				query_type: [
-					"A",
-					"AAAA",
-					"CNAME"
-				],
-				invert: true,
-				server: "dns_refused",
-				disable_cache: true
 			}
 		],
-		final: "dns_direct",
+		final: "dns_proxy",
 		independent_cache: true,
 		fakeip: {
 			enabled: true,
@@ -372,12 +359,12 @@ export const SING_BOX_CONFIG = {
 	},
 	inbounds: [
 		{ type: 'mixed', tag: 'mixed-in', listen: '0.0.0.0', listen_port: 2080 },
-		{ type: 'tun', tag: 'tun-in', address: '172.19.0.1/30', auto_route: true, strict_route: true, stack: 'mixed', sniff: true }
+		{ type: 'tun', tag: 'tun-in', address: '172.19.0.1/30', auto_route: true, strict_route: true, stack: 'mixed' }
 	],
 	outbounds: [
 		{ type: 'direct', tag: 'DIRECT' },
 		{ type: 'block', tag: 'REJECT' },
-		{ type: 'dns', tag: 'dns-out' }
+		{ type: 'sniff', tag: 'tun-in' }
 	],
 	route : {
 		"rule_set": [
