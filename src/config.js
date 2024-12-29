@@ -6,7 +6,7 @@ export const CUSTOM_RULES = [];
 export const UNIFIED_RULES = [
 	{
 		name: 'Ad Block',
-		outbound: '🛑 广告拦截',
+		outbound: '🛑 不要选择',
 		site_rules: ['category-ads-all'],
 		ip_rules: []
 	},
@@ -142,13 +142,12 @@ export const IP_RULE_SETS = UNIFIED_RULES.reduce((acc, rule) => {
 // Helper function to get outbounds based on selected rule names
 export function getOutbounds(selectedRuleNames) {
     if (!selectedRuleNames || !Array.isArray(selectedRuleNames)) {
-        return [];
+        return []; // or handle this case as appropriate for your use case
     }
     return UNIFIED_RULES
-      .filter(rule => selectedRuleNames.includes(rule.name) && rule.name !== 'Ad Block')
+      .filter(rule => selectedRuleNames.includes(rule.name))
       .map(rule => rule.outbound);
 }
-
 
 // Helper function to generate rules based on selected rule names
 export function generateRules(selectedRules = [], customRules = [], pin) {
@@ -253,6 +252,16 @@ export function generateRuleSets(selectedRules = [], customRules = []) {
 		type: 'remote',
 		format: 'binary',
 		url: `${SITE_RULE_SET_BASE_URL}geosite-geolocation-!cn.srs`,
+		download_detour: '⚡ 自动选择'
+	});
+  }
+
+    if(!selectedRules.includes('Ad Block')){
+	site_rule_sets.push({
+		tag: 'category-ads-all',
+		type: 'remote',
+		format: 'binary',
+		url: `${SITE_RULE_SET_BASE_URL}geosite-category-ads-all.srs`,
 		download_detour: '⚡ 自动选择'
 	});
   }
