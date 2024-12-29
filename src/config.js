@@ -6,6 +6,7 @@ export const CUSTOM_RULES = [];
 export const UNIFIED_RULES = [
 	{
 		name: 'Ad Block',
+		outbound: '🛑 广告拦截',
 		site_rules: ['category-ads-all'],
 		ip_rules: []
 	},
@@ -137,7 +138,8 @@ export const IP_RULE_SETS = UNIFIED_RULES.reduce((acc, rule) => {
 	});
 	return acc;
 }, {});
-//测试
+
+// Helper function to get outbounds based on selected rule names
 export function getOutbounds(selectedRuleNames) {
     if (!selectedRuleNames || !Array.isArray(selectedRuleNames)) {
         return [];
@@ -147,16 +149,6 @@ export function getOutbounds(selectedRuleNames) {
       .map(rule => rule.outbound);
 }
 
-
-// Helper function to get outbounds based on selected rule names
-export function getOutbounds(selectedRuleNames) {
-    if (!selectedRuleNames || !Array.isArray(selectedRuleNames)) {
-        return []; // or handle this case as appropriate for your use case
-    }
-    return UNIFIED_RULES
-      .filter(rule => selectedRuleNames.includes(rule.name))
-      .map(rule => rule.outbound);
-}
 
 // Helper function to generate rules based on selected rule names
 export function generateRules(selectedRules = [], customRules = [], pin) {
