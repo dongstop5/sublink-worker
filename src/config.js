@@ -4,12 +4,7 @@ export const IP_RULE_SET_BASE_URL = 'https://raw.githubusercontent.com/lyc8503/s
 export const CUSTOM_RULES = [];
 // Unified rule structure
 export const UNIFIED_RULES = [
-	{
-		name: 'Ad Block',
-		outbound: '🛑 不要选择',
-		site_rules: ['category-ads-all'],
-		ip_rules: []
-	},
+
 	{
 		name: 'AI Services',
 		outbound: '💬 AI 服务',
@@ -117,8 +112,8 @@ export const UNIFIED_RULES = [
 ];
 
 export const PREDEFINED_RULE_SETS = {
-	minimal: ['Location:CN', 'Private', 'Ad Block', 'Non-China'],
-	balanced: ['Location:CN', 'Private', 'Ad Block', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
+	minimal: ['Location:CN', 'Private', 'Non-China'],
+	balanced: ['Location:CN', 'Private', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
 	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   
@@ -246,6 +241,16 @@ export function generateRuleSets(selectedRules = [], customRules = []) {
     	download_detour: '⚡ 自动选择'
   }));
 
+
+
+	site_rule_sets.push({
+		tag: 'category-ads-all',
+		type: 'remote',
+		format: 'binary',
+		url: `${SITE_RULE_SET_BASE_URL}geosite-category-ads-all.srs`,
+		download_detour: '⚡ 自动选择'
+	});
+  
   if(!selectedRules.includes('Non-China')){
 	site_rule_sets.push({
 		tag: 'geolocation-!cn',
@@ -255,17 +260,7 @@ export function generateRuleSets(selectedRules = [], customRules = []) {
 		download_detour: '⚡ 自动选择'
 	});
   }
-
-    if(!selectedRules.includes('Ad Block')){
-	site_rule_sets.push({
-		tag: 'category-ads-all',
-		type: 'remote',
-		format: 'binary',
-		url: `${SITE_RULE_SET_BASE_URL}geosite-category-ads-all.srs`,
-		download_detour: '⚡ 自动选择'
-	});
-  }
-
+  
   if(customRules){
 	customRules.forEach(rule => {
 		if(rule.site!=''){
