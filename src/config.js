@@ -6,7 +6,7 @@ export const CUSTOM_RULES = [];
 export const UNIFIED_RULES = [
 	{
 		name: 'Ad Block',
-		outbound: '🛑 广告拦截',
+		outbound: '',
 		site_rules: ['category-ads-all'],
 		ip_rules: []
 	},
@@ -117,8 +117,8 @@ export const UNIFIED_RULES = [
 ];
 
 export const PREDEFINED_RULE_SETS = {
-	minimal: ['Location:CN', 'Private', 'Non-China'],
-	balanced: ['Location:CN', 'Private', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
+	minimal: ['Location:CN', 'Private', 'Ad Block', 'Non-China'],
+	balanced: ['Location:CN', 'Private', 'Ad Block', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
 	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   

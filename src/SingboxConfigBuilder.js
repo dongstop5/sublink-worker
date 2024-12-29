@@ -103,10 +103,11 @@ outbounds.forEach(outbound => {
         }));
         // Add any default rules that should always be present
         this.config.route.rules.unshift(
-            { action: 'sniff', inbound: 'tun-in' },
+            { action: 'sniff' },
             { action: 'hijack-dns', protocol: 'dns' },
             { action: 'hijack-dns', port: 53 },
-            { clash_mode: '全局', outbound: 'GLOBAL' }
+            { "clash_mode":"Adblock","rule_set":"category-ads-all","action":"reject","method":"default" },
+            { clash_mode: 'Globl', outbound: 'GLOBAL' }
          //    {rule_set:["geolocation-cn","cn-ip"],outbound:"DIRECT"} 添加CN默认直连
         );
 
