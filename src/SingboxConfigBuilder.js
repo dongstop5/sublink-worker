@@ -110,11 +110,12 @@ outbounds.forEach(outbound => {
             { clash_mode: 'Globl', outbound: 'GLOBAL' }
          //    {rule_set:["geolocation-cn","cn-ip"],outbound:"DIRECT"} 添加CN默认直连
         );
-
-        this.config.route.push(
+        this.config.route.rules.push(
             { action: "resolve" },
             { rule_set: "cn-ip", outbound: "🎯 全球直连" }
         );//添加了强化国内兜底
+
+
         this.config.route.auto_detect_interface = true;
         this.config.route.final = '🐟 漏网之鱼';
 
