@@ -242,7 +242,7 @@ export function generateRuleSets(selectedRules = [], customRules = []) {
   }));
 
 
-
+// 添加 ad 规则集
 	site_rule_sets.push({
 		tag: 'category-ads-all',
 		type: 'remote',
@@ -260,7 +260,7 @@ export function generateRuleSets(selectedRules = [], customRules = []) {
 		download_detour: '⚡ 自动选择'
 	});
   }
-  
+
   if(customRules){
 	customRules.forEach(rule => {
 		if(rule.site!=''){

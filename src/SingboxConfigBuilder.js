@@ -44,7 +44,7 @@ outbounds.forEach(outbound => {
         this.config.outbounds.push({
             type: "selector",
             tag: outbound,
-            outbounds: [...proxyList, '🚀 节点选择']
+            outbounds: ['🚀 节点选择', ...proxyList]
         });
     } else {
         this.config.outbounds.unshift({
@@ -106,11 +106,12 @@ outbounds.forEach(outbound => {
             { action: 'sniff' },
             { action: 'hijack-dns', protocol: 'dns' },
             { action: 'hijack-dns', port: 53 },
-            { "clash_mode":"Adblock","rule_set":"category-ads-all","action":"reject","method":"default" },
+            { "clash_mode":"Ad-block","rule_set":"category-ads-all","action":"reject","method":"default" },
             { clash_mode: 'Globl', outbound: 'GLOBAL' }
          //    {rule_set:["geolocation-cn","cn-ip"],outbound:"DIRECT"} 添加CN默认直连
         );
-
+        
+        this.config.route.({"action": "resolve"},{"rule_set":"cn-ip","outbound": "🎯 全球直连"});//添加强化国内兜底
         this.config.route.auto_detect_interface = true;
         this.config.route.final = '🐟 漏网之鱼';
 
