@@ -137,6 +137,16 @@ export const IP_RULE_SETS = UNIFIED_RULES.reduce((acc, rule) => {
 	});
 	return acc;
 }, {});
+//测试
+export function getOutbounds(selectedRuleNames) {
+    if (!selectedRuleNames || !Array.isArray(selectedRuleNames)) {
+        return [];
+    }
+    return UNIFIED_RULES
+      .filter(rule => selectedRuleNames.includes(rule.name) && rule.name !== 'Ad Block')
+      .map(rule => rule.outbound);
+}
+
 
 // Helper function to get outbounds based on selected rule names
 export function getOutbounds(selectedRuleNames) {
