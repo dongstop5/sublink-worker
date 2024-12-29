@@ -6,7 +6,6 @@ export const CUSTOM_RULES = [];
 export const UNIFIED_RULES = [
 	{
 		name: 'Ad Block',
-		outbound: '',
 		site_rules: ['category-ads-all'],
 		ip_rules: []
 	},
