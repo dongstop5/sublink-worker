@@ -29,19 +29,6 @@ export const UNIFIED_RULES = [
 		site_rules: ['google'],
 		ip_rules: ['google']
 	},
-
-	{
-		name: 'Private',
-		outbound: '🏠 私有网络',
-		site_rules: [],
-		ip_rules: ['private']
-	},
-	{
-		name: 'Location:CN',
-		outbound: '🔒 国内服务',
-		site_rules: ['geolocation-cn'],
-		ip_rules: ['cn']
-	},
 	{
 		name: 'Telegram',
 		outbound: '📲 电报消息',
@@ -101,6 +88,19 @@ export const UNIFIED_RULES = [
 		outbound: '☁️ 云服务',
 		site_rules: ['aws', 'azure', 'digitalocean', 'heroku', 'dropbox'],
 		ip_rules: []
+	  },
+	  
+	  {
+	  	name: 'Private',
+	  	outbound: '🏠 私有网络',
+	  	site_rules: [],
+	  	ip_rules: ['private']
+	  },
+	  {
+	  	name: 'Location:CN',
+	  	outbound: '🔒 国内服务',
+	  	site_rules: ['geolocation-cn'],
+	  	ip_rules: ['cn']
 	  },
 	  {
 		name: 'Non-China',
