@@ -54,7 +54,22 @@ outbounds.forEach(outbound => {
         });
     }
 });
+        if (outbound === '🏠 私有网络') {
+            this.config.outbounds.push({
+                type: "selector",
+                tag: outbound,
+                outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
+            });
+        }
 
+        if (outbound === '🔒 国内服务') {
+            this.config.outbounds.push({
+                type: "selector",
+                tag: outbound,
+                outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
+            });
+        }
+        
         if (Array.isArray(this.customRules)) {
             this.customRules.forEach(rule => {
                 this.config.outbounds.push({
@@ -65,17 +80,17 @@ outbounds.forEach(outbound => {
             });
         }
 
-        this.config.outbounds.push({
-            type: "selector",
-            tag: "🔒 国内服务",
-            outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
-        });
+        // this.config.outbounds.push({
+        //     type: "selector",
+        //     tag: "🔒 国内服务",
+        //     outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
+        // });
 
-        this.config.outbounds.push({
-            type: "selector",
-            tag: "🏠 私有网络",
-            outbounds: ['DIRECT', '🚀 节点选择']
-        });
+        // this.config.outbounds.push({
+        //     type: "selector",
+        //     tag: "🏠 私有网络",
+        //     outbounds: ['DIRECT', '🚀 节点选择']
+        // });
 
         this.config.outbounds.push({
             type: "selector",
