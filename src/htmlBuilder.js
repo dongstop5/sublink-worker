@@ -76,13 +76,14 @@ const generateCardHeader = () => `
 const generateForm = () => `
   <form method="POST" id="encodeForm">
     <div class="form-section">
-      <div class="form-section-title">支持导入 Base64 的 http/https 订阅链接以及多种协议的分享URL\n注意：sing-box 首次启动容易失败报错，请多尝试几次</div>
+      <div class="form-section-title">支持导入 Base64 的 http/https 订阅链接以及多种协议的分享URL</div>
+      <div class="form-section-title">留意：sing-box 首次启动容易失败报错，请多尝试几次</div>
       <textarea class="form-control" id="inputTextarea" name="input" required placeholder="vmess://abcd..." rows="3"></textarea>
     </div>
 
     <div class="form-check form-switch mb-3">
       <input class="form-check-input" type="checkbox" id="advancedToggle">
-      <label class="form-check-label" for="advancedToggle">Advanced Options</label>
+      <label class="form-check-label" for="advancedToggle">Advanced Options 高级选项</label>
     </div>
 
     <div id="advancedOptions">
@@ -120,7 +121,7 @@ const generateForm = () => `
 
     <div class="d-flex gap-2 mt-4">
       <button type="submit" class="btn btn-primary flex-grow-1">
-        <i class="fas fa-sync-alt me-2"></i>Convert
+        <i class="fas fa-sync-alt me-2"></i>Convert 生成
       </button>
       <button type="button" class="btn btn-outline-secondary" id="clearFormBtn">
         <i class="fas fa-trash-alt me-2"></i>Clear
@@ -321,7 +322,7 @@ const shortenAllUrlsFunction = () => `
     } finally {
       isShortening = false;
       shortenButton.disabled = false;
-      shortenButton.innerHTML = '<i class="fas fa-compress-alt me-2"></i>Shorten Links';
+      shortenButton.innerHTML = '<i class="fas fa-compress-alt me-2"></i>Shorten Links 短链';
     }
   }
 `;
