@@ -107,7 +107,7 @@ const generateForm = () => `
           </select>
         </div>
         <div class="mb-3">
-          <textarea class="form-control" id="configEditor" rows="3" placeholder="Paste your custom config here..."></textarea>
+          <textarea class="form-control" id="configEditor" rows="3" placeholder="此部分暂不建议使用"></textarea>
         </div>
         <div class="d-flex gap-2">
           <button type="button" class="btn btn-secondary" onclick="saveConfig()">Save Config</button>
