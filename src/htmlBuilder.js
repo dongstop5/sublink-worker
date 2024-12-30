@@ -16,7 +16,7 @@ const generateHead = () => `
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sublink Worker是一款强大的在线订阅链接转换工具,支持V2Ray/Xray、SingBox、Clash等多种客户端，提供自定义规则和高效转换，帮助您轻松管理和优化代理节点。">
-    <meta name="keywords" content="Sublink, Worker, 订阅链接, 代理, Xray, SingBox, Clash, V2Ray, 自定义规则, 在线, 订阅转换, 机场订阅, 节点管理, 节点解析">
+    <meta name="keywords" content="Sublink, Worker, sing-box 1.11 配置生成, 订阅链接, 代理, Xray, SingBox, Clash, V2Ray, 自定义规则, 在线, 订阅转换, 机场订阅, 节点管理, 节点解析">
     <title>Sublink Worker - 轻量高效的订阅转换工具 | 支持V2Ray/Xray、SingBox、Clash</title>
     <meta property="og:title" content="Sublink Worker - 轻量高效的订阅链接转换工具">
     <meta property="og:description" content="强大的在线订阅链接转换工具,支持多种代理协议和自定义规则">
@@ -69,14 +69,14 @@ const generateGithubLink = () => `
 
 const generateCardHeader = () => `
   <div class="card-header text-center">
-    <h1 class="display-4 mb-0">Sublink Worker</h1>
+    <h1 class="display-4 mb-0">sing-box 1.11 配置生成</h1>
   </div>
 `;
 
 const generateForm = () => `
   <form method="POST" id="encodeForm">
     <div class="form-section">
-      <div class="form-section-title">Share URLs</div>
+      <div class="form-section-title">支持导入 Base64 的 http/https 订阅链接以及多种协议的分享URL\n注意：sing-box 首次启动容易失败报错，请多尝试几次</div>
       <textarea class="form-control" id="inputTextarea" name="input" required placeholder="vmess://abcd..." rows="3"></textarea>
     </div>
 
