@@ -29,6 +29,19 @@ export const UNIFIED_RULES = [
 		site_rules: ['google'],
 		ip_rules: ['google']
 	},
+
+	{
+		name: 'Private',
+		outbound: '🏠 私有网络',
+		site_rules: [],
+		ip_rules: ['private']
+	},
+	{
+		name: 'Location:CN',
+		outbound: '🔒 国内服务',
+		site_rules: ['geolocation-cn'],
+		ip_rules: ['cn']
+	},
 	{
 		name: 'Telegram',
 		outbound: '📲 电报消息',
@@ -89,19 +102,6 @@ export const UNIFIED_RULES = [
 		site_rules: ['aws', 'azure', 'digitalocean', 'heroku', 'dropbox'],
 		ip_rules: []
 	  },
-	  
-	  {
-	  	name: 'Private',
-	  	outbound: '🏠 私有网络',
-	  	site_rules: [],
-	  	ip_rules: ['private']
-	  },
-	  {
-	  	name: 'Location:CN',
-	  	outbound: '🔒 国内服务',
-	  	site_rules: ['geolocation-cn'],
-	  	ip_rules: ['cn']
-	  },
 	  {
 		name: 'Non-China',
 		outbound: '🌐 非中国',
@@ -112,9 +112,11 @@ export const UNIFIED_RULES = [
 ];
 
 export const PREDEFINED_RULE_SETS = {
-	minimal: ['Location:CN', 'Private', 'Non-China'],
-	balanced: ['Location:CN', 'Private', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
-	comprehensive: UNIFIED_RULES.map(rule => rule.name)
+	minimal: ['Non-China'],
+	balanced: ['Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
+	// comprehensive: UNIFIED_RULES.map(rule => rule.name)
+	comprehensive: const filteredRules = UNIFIED_RULES.filter(rule => rule.name !== "🏠 私有网络" && rule.name !== "🔒 国内服务")
+
   };
   
 
