@@ -77,7 +77,7 @@ const generateForm = () => `
   <form method="POST" id="encodeForm">
     <div class="form-section">
       <div class="form-section-title">支持导入 Base64 的 http/https 订阅链接以及多种协议的分享URL</div>
-      <div class="form-section-title">留意：sing-box 首次启动容易失败报错，请多尝试几次</div>
+      <div class="form-section-title">留意：sing-box APP 首次规则集下载容易失败，请多尝试几次</div>
       <textarea class="form-control" id="inputTextarea" name="input" required placeholder="vmess://abcd..." rows="3"></textarea>
     </div>
 
@@ -153,7 +153,7 @@ const generateSubscribeLinks = (xrayUrl, singboxUrl, clashUrl, baseUrl) => `
     </div>
     <div class="d-grid">
       <button class="btn btn-primary btn-lg" type="button" onclick="shortenAllUrls()">
-        <i class="fas fa-compress-alt me-2"></i>Shorten Links
+        <i class="fas fa-compress-alt me-2"></i>Shorten Links 短链
       </button>
     </div>
   </div>
