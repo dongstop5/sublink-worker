@@ -114,9 +114,7 @@ export const UNIFIED_RULES = [
 export const PREDEFINED_RULE_SETS = {
 	minimal: ['Non-China'],
 	balanced: ['Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
-	// comprehensive: UNIFIED_RULES.map(rule => rule.name)
-	comprehensive: const filteredRules = UNIFIED_RULES.filter(rule => rule.name !== "Private" && rule.name !== "Location:CN")
-
+	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   
 
