@@ -47,7 +47,13 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
         outbounds.unshift('🚀 节点选择');
         
         outbounds.forEach(outbound => {
-            if (outbound !== '🚀 节点选择') {
+            if (outbound === '🔒 国内服务' || outbound === '🏠 私有网络') {
+                this.config['proxy-groups'].push({
+                    type: "select",
+                    name: outbound,
+                    proxies: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
+                });
+            } else if (outbound !== '🚀 节点选择') {
                 this.config['proxy-groups'].push({
                     type: "select",
                     name: outbound,
@@ -61,13 +67,12 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
                 });
             }
         });
-
         if (Array.isArray(this.customRules)) {
             this.customRules.forEach(rule => {
                 this.config['proxy-groups'].push({
                     type: "select",
                     name: rule.name,
-                    proxies: ['🚀 节点选择', ...proxyList]
+                    proxies: [...proxyList, '🚀 节点选择']
                 });
             });
         }
