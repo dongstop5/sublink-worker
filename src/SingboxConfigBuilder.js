@@ -37,7 +37,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         });
 
 proxyList.unshift('⚡ 自动选择', 'DIRECT');
-outbounds.unshift('🚀 节点选择','GLOBAL');
+outbounds.unshift('🚀 节点选择');
 
 outbounds.forEach(outbound => {
     if (outbound === '🔒 国内服务' || outbound === '🏠 私有网络') {
@@ -70,6 +70,12 @@ outbounds.forEach(outbound => {
                 });
             });
         }
+        // 改添加 GLOBAL
+        this.config.outbounds.push({
+            type: "selector",
+            tag: "GLOBAL",
+            outbounds: proxyList
+        });
 
         this.config.outbounds.push({
             type: "selector",
