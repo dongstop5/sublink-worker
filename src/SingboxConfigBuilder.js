@@ -30,16 +30,17 @@ export class ConfigBuilder extends BaseConfigBuilder {
 
         const proxyList = this.config.outbounds.filter(outbound => outbound?.server != undefined).map(outbound => outbound.tag);
 
-        this.config.outbounds.unshift({
-            type: "urltest",
-            tag: "⚡ 自动选择",
-            outbounds: DeepCopy(proxyList),
-        });
 
         // 改添加 GLOBAL
         this.config.outbounds.unshift({
             type: "selector",
             tag: "GLOBAL",
+            outbounds: DeepCopy(proxyList),
+        });
+        
+        this.config.outbounds.unshift({
+            type: "urltest",
+            tag: "⚡ 自动选择",
             outbounds: DeepCopy(proxyList),
         });
 
@@ -73,7 +74,7 @@ outbounds.forEach(outbound => {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: rule.name,
-                    outbounds: ['DIRECT', '🚀 节点选择'] // DIRECT 优先
+                    outbounds: ['DIRECT', '🚀 节点选择', ...proxyList] // DIRECT 优先
                 });
             });
         }
