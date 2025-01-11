@@ -74,7 +74,7 @@ outbounds.forEach(outbound => {
                 this.config.outbounds.push({
                     type: "selector",
                     tag: rule.name,
-                    outbounds: ['DIRECT', '🚀 节点选择', ...proxyList] // DIRECT 优先
+                    outbounds: ['DIRECT', '🚀 节点选择', '⚡ 自动选择'] // DIRECT 优先
                 });
             });
         }
