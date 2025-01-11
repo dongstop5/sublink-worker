@@ -74,7 +74,7 @@ outbounds.forEach(outbound => {
         this.config.outbounds.push({
             type: "selector",
             tag: "GLOBAL",
-            outbounds: proxyList
+            outbounds: DeepCopy(proxyList),
         });
 
         this.config.outbounds.push({

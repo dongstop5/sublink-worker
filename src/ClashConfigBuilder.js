@@ -73,7 +73,7 @@ export class ClashConfigBuilder extends BaseConfigBuilder {
                 this.config['proxy-groups'].push({
                     type: "select",
                     name: rule.name,
-                    proxies: [...proxyList, '🚀 节点选择']
+                    proxies: ['DIRECT', ...proxyList, '🚀 节点选择']
                 });
             });
         }
