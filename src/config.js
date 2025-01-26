@@ -112,8 +112,8 @@ export const UNIFIED_RULES = [
 ];
 
 export const PREDEFINED_RULE_SETS = {
-	minimal: ['Location:CN', 'Private', 'Non-China'],
-	balanced: ['Location:CN', 'Private', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
+	minimal: ['Location:CN', 'Non-China'],
+	balanced: ['Location:CN', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
 	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   
@@ -299,7 +299,7 @@ export const SING_BOX_CONFIG = {
 		servers: [
 			{
 				tag: "dns_proxy",
-				address: "tcp://8.8.8.8",
+				address: "tls://8.8.8.8",
 				// address_resolver: "dns_resolver",
 				// strategy: "ipv4_only",
 				detour: "🚀 节点选择"
