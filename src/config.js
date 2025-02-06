@@ -306,8 +306,8 @@ export const SING_BOX_CONFIG = {
 			},
 			{
 				tag: "dns_direct", 
-				address: "https://dns.alidns.com/dns-query",
-				address_resolver: "dns_resolver",
+				address: "https://223.5.5.5/dns-query",
+				// address_resolver: "dns_resolver",
 				// strategy: "ipv4_only",
 				detour: "DIRECT"
 			},
@@ -356,8 +356,30 @@ export const SING_BOX_CONFIG = {
 		detour: 'DIRECT'
 	},
 	inbounds: [
-{type:'mixed',tag:'mixed-in',listen:'0.0.0.0',listen_port:8888},{type:'tun',tag:'tun-in',mtu:9000,address:'172.18.0.1/30',auto_route:true,strict_route:true,stack:'mixed',platform:{http_proxy:{enabled:true,server:'127.0.0.1',server_port:8888}}}
-	],
+  {
+    type: 'mixed',
+    tag: 'mixed-in',
+    listen: '0.0.0.0',
+    listen_port: 8888
+  },
+  {
+    type: 'tun',
+    tag: 'tun-in',
+    mtu: 9000,
+    address: '172.18.0.1/30',
+    route_exclude_address_set: 'cn-ip',
+    auto_route: true,
+    strict_route: true,
+    stack: 'mixed',
+    platform: {
+      http_proxy: {
+        enabled: true,
+        server: '127.0.0.1',
+        server_port: 8888
+      }
+    }
+  }
+],
 	outbounds: [
 		{ type: 'direct', tag: 'DIRECT' }
 	],
