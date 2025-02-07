@@ -306,7 +306,7 @@ export const SING_BOX_CONFIG = {
 			},
 			{
 				tag: "dns_direct", 
-				address: "https://223.5.5.5/dns-query",
+				address: "https://120.53.53.53/dns-query",
 				// address_resolver: "dns_resolver",
 				// strategy: "ipv4_only",
 				detour: "DIRECT"

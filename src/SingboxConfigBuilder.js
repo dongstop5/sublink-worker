@@ -41,6 +41,7 @@ export class ConfigBuilder extends BaseConfigBuilder {
         this.config.outbounds.unshift({
             type: "urltest",
             tag: "⚡ 自动选择",
+            url: "http://www.gstatic.com/generate_204",
             outbounds: DeepCopy(proxyList),
         });
 
