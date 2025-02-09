@@ -113,7 +113,7 @@ export const UNIFIED_RULES = [
 
 export const PREDEFINED_RULE_SETS = {
 	minimal: ['Location:CN', 'Non-China'],
-	balanced: ['Location:CN', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Telegram'],
+	balanced: ['Location:CN', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Bilibili', 'Telegram', 'Github', 'Microsoft', 'Apple', 'Social Media'],
 	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   
@@ -306,7 +306,7 @@ export const SING_BOX_CONFIG = {
 			},
 			{
 				tag: "dns_direct", 
-				address: "https://120.53.53.53/dns-query",
+				address: "https://223.6.6.6/dns-query",
 				// address_resolver: "dns_resolver",
 				// strategy: "ipv4_only",
 				detour: "DIRECT"
@@ -412,7 +412,7 @@ export const SING_BOX_CONFIG = {
 	},
 	  log: {
     disabled: false,
-    level: "error",
+    level: "panic",
     output: "",
   }
 };
