@@ -1,5 +1,5 @@
-export const SITE_RULE_SET_BASE_URL = 'https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/';
-export const IP_RULE_SET_BASE_URL = 'https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/';
+export const SITE_RULE_SET_BASE_URL = 'https://raw.githubusercontent.com/xchacha20-poly1305/sing-geosite/refs/heads/rule-set/';
+export const IP_RULE_SET_BASE_URL = 'https://raw.githubusercontent.com/xchacha20-poly1305/sing-geoip/refs/heads/rule-set/';
 // Custom rules
 export const CUSTOM_RULES = [];
 // Unified rule structure
@@ -28,19 +28,6 @@ export const UNIFIED_RULES = [
 		outbound: '🔍 谷歌服务',
 		site_rules: ['google'],
 		ip_rules: ['google']
-	},
-
-	{
-		name: 'Private',
-		outbound: '🏠 私有网络',
-		site_rules: [],
-		ip_rules: ['private']
-	},
-	{
-		name: 'Location:CN',
-		outbound: '🔒 国内服务',
-		site_rules: ['geolocation-cn'],
-		ip_rules: ['cn']
 	},
 	{
 		name: 'Telegram',
@@ -103,6 +90,18 @@ export const UNIFIED_RULES = [
 		ip_rules: []
 	  },
 	  {
+	  	name: 'Private',
+	  	outbound: '🏠 私有网络',
+	  	site_rules: [],
+	  	ip_rules: ['private']
+	  },
+	  {
+	  	name: 'Location:CN',
+	  	outbound: '🔒 国内服务',
+	  	site_rules: ['geolocation-cn'],
+	  	ip_rules: ['cn']
+	  },
+	  {
 		name: 'Non-China',
 		outbound: '🌐 非中国',
 		site_rules: ['geolocation-!cn'],
@@ -113,7 +112,7 @@ export const UNIFIED_RULES = [
 
 export const PREDEFINED_RULE_SETS = {
 	minimal: ['Location:CN', 'Non-China'],
-	balanced: ['Location:CN', 'Non-China', 'Google', 'Youtube', 'AI Services', 'Bilibili', 'Telegram', 'Github', 'Microsoft', 'Apple', 'Social Media'],
+	balanced: ['Location:CN', 'Google', 'Youtube', 'AI Services', 'Bilibili', 'Telegram', 'Github', 'Microsoft', 'Apple', 'Social Media'],
 	comprehensive: UNIFIED_RULES.map(rule => rule.name)
   };
   
