@@ -305,10 +305,10 @@ export const SING_BOX_CONFIG = {
 			},
 			{
 				tag: "dns_direct", 
-				address: "https://223.6.6.6/dns-query",
+				address: "local"
 				// address_resolver: "dns_resolver",
 				// strategy: "ipv4_only",
-				detour: "DIRECT"
+				// detour: "DIRECT"
 			},
 			{
 				tag: "dns_resolver",
@@ -323,7 +323,7 @@ export const SING_BOX_CONFIG = {
 		rules: [
 			{
 				outbound: "any",
-				server: "dns_resolver"
+				server: "dns_direct"
 			},      
 			{
 				rule_set: "geolocation-cn",
